@@ -2,15 +2,17 @@ package com.eugene.insulator.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "message")
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "message")
+@NoArgsConstructor
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,11 +25,9 @@ public class Message {
     @Column(name = "tag")
     private String tag;
 
-    public Message() {
-    }
-
     public Message(String text, String tag) {
         this.text = text;
         this.tag = tag;
     }
 }
+
